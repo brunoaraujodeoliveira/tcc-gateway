@@ -1,0 +1,53 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway
+    
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/registry/eureka
+
+hystrix:
+  threadpool:
+    default:
+      coreSize: 1000
+      maximumSize: 10000
+      queueSizeRejectionThreshold: -1
+      maxQueueSize: -1
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            
+ribbon:
+  ConnectTimeout: 10000
+  ReadTimeout: 30000
+      
+zuul:
+  prefix: /api
+  ignored-services: "*"
+  host:
+    max-total-connections: 10000
+    max-per-route-connections: 50
+  
+  routes:
+    integracao:
+      path: /integracao/**
+      service-id: integracao
+      strip-prefix: false
+      custom-sensitive-headers: true
+      
+    monitoramento:
+      path: /monitoramento/**
+      service-id: monitoramento
+      strip-prefix: false
+      custom-sensitive-headers: true
+      

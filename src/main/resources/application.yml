@@ -6,9 +6,6 @@ spring:
     name: gateway
     
 eureka:
-  instance:
-    hostname: http://tcc-discovery.herokuapp.com
-    prefer-ip-address: true
   client:
     service-url:
 #      defaultZone: http://localhost:8761/registry/eureka
@@ -20,18 +17,18 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 60000
+            timeoutInMilliseconds: 600000
       
 ribbon:
-  ConnectTimeout: 3000
-  ReadTimeout: 60000
+  ConnectTimeout: 30000
+  ReadTimeout: 600000
       
 zuul:
   prefix: /api
   ignored-services: "*"
   host:
     max-total-connections: 10000
-    max-per-route-connections: 50
+    max-per-route-connections: 500
   
   routes:
     integracao:

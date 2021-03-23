@@ -17,11 +17,11 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 600000
+            timeoutInMilliseconds: 1260000
       
 ribbon:
-  ConnectTimeout: 30000
-  ReadTimeout: 600000
+  ConnectTimeout: 1260000
+  ReadTimeout: 1260000
       
 zuul:
   prefix: /api

@@ -13,6 +13,10 @@ eureka:
     service-url:
 #      defaultZone: http://localhost:8761/registry/eureka
       defaultZone: http://tcc-discovery.herokuapp.com/registry/eureka/
+
+ribbon:
+  ReadTimeout: 6000
+  ConnectTimeout: 6000
       
 zuul:
   prefix: /api

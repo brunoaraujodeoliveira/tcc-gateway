@@ -13,24 +13,6 @@ eureka:
     service-url:
 #      defaultZone: http://localhost:8761/registry/eureka
       defaultZone: http://tcc-discovery.herokuapp.com/registry/eureka/
-
-hystrix:
-  threadpool:
-    default:
-      coreSize: 1000
-      maximumSize: 10000
-      queueSizeRejectionThreshold: -1
-      maxQueueSize: -1
-  command:
-    default:
-      execution:
-        isolation:
-          strategy: THREAD
-          thread:
-            
-ribbon:
-  ConnectTimeout: 10000
-  ReadTimeout: 30000
       
 zuul:
   prefix: /api
